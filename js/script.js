@@ -15,10 +15,9 @@
 
 
 
-// Una volta scelta la difficoltà, qualora si voglia modificarla occurre:
+// Una volta scelta la difficoltà, qualora si voglia modificarla occorre:
 // Svuotare array dei numeri già usciti
 // Svuotare il div che contiene i quadrati
-
 
 
 const containerGame = document.querySelector('.container_game_grid');
@@ -31,8 +30,8 @@ document.querySelector("#start_game").addEventListener("click", function(){
 
   if(!played){
 
-  init(document.querySelector('#game_difficult').value);
-  played = true;
+    init(document.querySelector('#game_difficult').value);
+    played = true;
 
   } else {
     listNumbers = [];
