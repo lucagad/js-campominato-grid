@@ -17,9 +17,38 @@
 const containerGame = document.querySelector('.container_game_grid');
 const listNumbers = [];
 
-let numberSquare = 100;
+// const numberSquare = document.querySelector('#game_difficult').value();
 
 
+init(49);
+
+function init(numberElement){
+  for(let i = 0; i < numberElement; i++){
+    const square = createSquare(containerGame,numberElement);
+    square.addEventListener('click', function(){
+      this.classList.add('clicked');
+      })
+  }
+}
+
+/**
+ * Genera l'elemento HTML e lo restituisce
+ * @param {HTMLDivElement} target 
+ * @returns 
+ */
+function createSquare(target,dimension){
+  const newSquare = document.createElement('div');
+  
+  newSquare.className = 'square'+dimension;
+  const number = getUniqueRandomNumber(1,dimension);
+
+  newSquare.innerHTML = `<span>${number}</span>`;
+  newSquare.classList.add(getOddEven(number));
+
+  target.append(newSquare);
+
+  return newSquare;
+}
 
 function getUniqueRandomNumber(min, max){
   let number = null;
@@ -27,7 +56,7 @@ function getUniqueRandomNumber(min, max){
 
   while(!valid){
     number = getRandomNumber(min, max);
- 
+
     if(!listNumbers.includes(number)){
       valid = true;
       listNumbers.push(number)

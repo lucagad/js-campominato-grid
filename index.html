@@ -12,6 +12,7 @@
 </head>
 <body>
   
+  <!-- Header -->
   <div class="container-fluid">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
@@ -19,19 +20,24 @@
         <span class="fs-4">Campo Minato</span>
       </a>
 
-      <div class="col-md-3 text-end">
-        
-        <button type="button" class="btn btn-primary">Play</button>
+      <div class="col-md-4 d-flex justify-content-end align-items-center">
+        <span class="mx-3">Scegli la difficolt&aacute;</span>
+        <select id="game_difficult" class="mx-3 form-select" aria-label="Default select example">
+          <option selected value="49">Easy</option>
+          <option value="81">Medium</option>
+          <option value="100">Hard</option>
+        </select>
+        <button id="start_game" type="button" class="px-3 btn btn-primary">Play</button>
       </div>
     </header>
   </div>
 
+  <!-- Main with Dynamic Game grid -->
   <main>
-
     <div class="container_game_grid"></div>
-
   </main>
 
+  <!-- Footer -->
   <div class="container-fluid">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
       <div class="col-md-4 d-flex align-items-center">
