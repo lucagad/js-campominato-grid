@@ -14,13 +14,34 @@
 // Le validazioni e i controlli possiamo farli anche in un secondo momento.
 
 
+
+// Una volta scelta la difficoltà, qualora si voglia modificarla occurre:
+// Svuotare array dei numeri già usciti
+// Svuotare il div che contiene i quadrati
+
+
+
 const containerGame = document.querySelector('.container_game_grid');
-const listNumbers = [];
+let listNumbers = [];
+let played = false;
 
-// const numberSquare = document.querySelector('#game_difficult').value();
+console.log(document.querySelector('#game_difficult').value);
 
+document.querySelector("#start_game").addEventListener("click", function(){
 
-init(49);
+  if(!played){
+
+  init(document.querySelector('#game_difficult').value);
+  played = true;
+
+  } else {
+    listNumbers = [];
+    clearBox(containerGame);
+    console.log(listNumbers);
+    init(document.querySelector('#game_difficult').value);
+  }
+});
+
 
 function init(numberElement){
   for(let i = 0; i < numberElement; i++){
@@ -38,7 +59,7 @@ function init(numberElement){
  */
 function createSquare(target,dimension){
   const newSquare = document.createElement('div');
-  
+
   newSquare.className = 'square'+dimension;
   const number = getUniqueRandomNumber(1,dimension);
 
@@ -74,3 +95,8 @@ function getOddEven(n){
     if(n % 2) return 'odd';
     return 'even';
 }
+
+function clearBox(element) { 
+  console.log(element);
+  element.innerHTML = ""; 
+} 
