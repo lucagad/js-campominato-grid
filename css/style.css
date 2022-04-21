@@ -1,0 +1,10 @@
+
+header img,
+footer img{
+  height: 40px;
+}
+
+main{
+  height:calc(100vh - 146px);
+  background-color: aquamarine;
+}
