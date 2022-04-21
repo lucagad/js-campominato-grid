@@ -7,4 +7,64 @@ footer img{
 main{
   height:calc(100vh - 146px);
   background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_game_grid{
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+}
+
+.square100,
+.square81,
+.square49{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  color: white;
+}
+
+.square100{    
+  width: calc(100% / 10);
+  height: calc(100% / 10);
+}  
+
+.square81{    
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+}  
+
+.square49{    
+  width: calc(100% / 7);
+  height: calc(100% / 7);
+}  
+
+.square100 span,
+.square81 span,
+.square49 span{
+  display: none;
+}
+
+.square100.clicked span,
+.square81.clicked span,
+.square49.clicked span{
+  display: block;
+}
+
+.square100.clicked.even,
+.square81.clicked.even,
+.square49.clicked.even{
+  background-color: rgb(8, 137, 94);
+}
+
+.square100.clicked.odd,
+.square81.clicked.odd,
+.square49.clicked.odd{
+  background-color: brown;
 }
