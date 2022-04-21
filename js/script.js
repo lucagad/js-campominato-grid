@@ -44,7 +44,7 @@ document.querySelector("#start_game").addEventListener("click", function(){
 
 function init(numberElement){
   for(let i = 0; i < numberElement; i++){
-    const square = createSquare(containerGame,numberElement);
+    const square = createSquare(containerGame,numberElement,i);
     square.addEventListener('click', function(){
       this.classList.add('clicked');
       })
@@ -56,13 +56,14 @@ function init(numberElement){
  * @param {HTMLDivElement} target 
  * @returns 
  */
-function createSquare(target,dimension){
+function createSquare(target,dimension,externalNumber){
   const newSquare = document.createElement('div');
 
   newSquare.className = 'square'+dimension;
   const number = getUniqueRandomNumber(1,dimension);
 
-  newSquare.innerHTML = `<span>${number}</span>`;
+  newSquare.innerHTML = `<span class="square_number">${externalNumber+1}</span>`;
+  newSquare.innerHTML += `<span class="secret_number">${number}</span>`;
   newSquare.classList.add(getOddEven(number));
 
   target.append(newSquare);
