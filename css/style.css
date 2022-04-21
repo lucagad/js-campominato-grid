@@ -81,3 +81,12 @@ main{
 .square49.clicked.odd{
   background-color: brown;
 }
+
+
+@media screen and (max-width: 576px){
+
+  main{
+    height:calc(100vh - 228px);
+  }
+  
+}
