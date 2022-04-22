@@ -111,7 +111,20 @@ main{
 }
 
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 450px){
+
+  main{
+    height:calc(100vh - 228px);
+  }
+
+  .container_game_grid{
+    width: 420px;
+    height: 420px;
+  }
+  
+}
+
+@media screen and (min-width:451px) and (max-width: 576px){
 
   main{
     height:calc(100vh - 228px);
