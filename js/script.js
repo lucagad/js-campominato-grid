@@ -29,7 +29,7 @@ console.log(document.querySelector('#game_difficult').value);
 document.querySelector("#start_game").addEventListener("click", function(){
 
   if(!played){
-
+    document.querySelector("h2").classList.add("hide")
     init(document.querySelector('#game_difficult').value);
     played = true;
 
@@ -63,8 +63,15 @@ function createSquare(target,dimension,externalNumber){
   const number = getUniqueRandomNumber(1,dimension);
 
   newSquare.innerHTML = `<span class="square_number">${externalNumber+1}</span>`;
-  newSquare.innerHTML += `<span class="secret_number">${number}</span>`;
-  newSquare.classList.add(getOddEven(number));
+  //newSquare.innerHTML += `<span class="secret_number">${number}</span>`;
+  newSquare.classList.add(getFlowerBomb(number));
+
+  if(getFlowerBomb(number)=== "flower"){
+    newSquare.innerHTML += `<img src="img/flower.png" alt=""></img>`
+  } else {
+    newSquare.innerHTML += `<img src="img/bomb.png" alt=""></img>`
+
+  }
 
   target.append(newSquare);
 
@@ -91,9 +98,9 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function getOddEven(n){
-    if(n % 2) return 'odd';
-    return 'even';
+function getFlowerBomb(n){
+    if(n % 2) return 'bomb';
+    return 'flower';
 }
 
 function clearBox(element) { 

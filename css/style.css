@@ -12,6 +12,10 @@ main{
   align-items: center;
 }
 
+.hide{
+  display: none;
+}
+
 .container_game_grid{
   display: flex;
   align-content: flex-start;
@@ -48,19 +52,25 @@ main{
 .square100 .square_number,
 .square81 .square_number,
 .square49 .square_number{
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
 .square100 .secret_number,
+.square100 img,
 .square81 .secret_number,
-.square49 .secret_number{
+.square81 img,
+.square49 .secret_number,
+.square49 img{
   display: none;
 }
 
 .square100.clicked .secret_number,
+.square100.clicked img,
 .square81.clicked .secret_number,
-.square49.clicked .secret_number{
+.square81.clicked img,
+.square49.clicked .secret_number,
+.square49.clicked img{
   display: block;
 }
 
@@ -70,16 +80,17 @@ main{
   display: none;
 }
 
-.square100.clicked.even,
-.square81.clicked.even,
-.square49.clicked.even{
+.square100.clicked.flower,
+.square81.clicked.flower,
+.square49.clicked.flower{
   background-color: rgb(8, 137, 94);
 }
 
-.square100.clicked.odd,
-.square81.clicked.odd,
-.square49.clicked.odd{
+.square100.clicked.bomb,
+.square81.clicked.bomb,
+.square49.clicked.bomb{
   background-color: brown;
+
 }
 
 
