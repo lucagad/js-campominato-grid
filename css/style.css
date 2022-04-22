@@ -1,4 +1,8 @@
 
+.wrapper{
+  height: 100vh;
+}
+
 header img,
 footer img{
   height: 50px;
@@ -7,6 +11,7 @@ footer img{
 main{
   height:calc(100vh - 166px);
   background-color: rgb(16, 126, 199);
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,8 +25,8 @@ main{
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
 }
 
 .square100,
@@ -39,15 +44,27 @@ main{
   height: calc(100% / 10);
 }  
 
+.square100 img{    
+  height: 30px;
+} 
+
 .square81{    
   width: calc(100% / 9);
   height: calc(100% / 9);
-}  
+} 
+
+.square81 img{    
+  height: 35px;
+} 
 
 .square49{    
   width: calc(100% / 7);
   height: calc(100% / 7);
 }  
+
+.square49 img{    
+  height: 45px;
+} 
 
 .square100 .square_number,
 .square81 .square_number,
@@ -98,6 +115,11 @@ main{
 
   main{
     height:calc(100vh - 228px);
+  }
+
+  .container_game_grid{
+    width: 490px;
+    height: 490px;
   }
   
 }

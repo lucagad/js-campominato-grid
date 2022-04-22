@@ -43,8 +43,9 @@ document.querySelector("#start_game").addEventListener("click", function(){
 
 
 function init(numberElement){
-  for(let i = 0; i < numberElement; i++){
-    const square = createSquare(containerGame,numberElement,i);
+  const gridLevels = [100,81,49]
+  for(let i = 0; i < gridLevels[numberElement]; i++){
+    const square = createSquare(containerGame,gridLevels[numberElement],i);
     square.addEventListener('click', function(){
       this.classList.add('clicked');
       })
