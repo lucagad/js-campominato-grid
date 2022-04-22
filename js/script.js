@@ -48,6 +48,13 @@ function init(numberElement){
     const square = createSquare(containerGame,gridLevels[numberElement],i);
     square.addEventListener('click', function(){
       this.classList.add('clicked');
+      if(this.classList.contains("flower")){
+        let mySound = new Audio('audio/flower.mp3')
+        mySound.play()
+      } else {
+        let mySound = new Audio('audio/bomb.mp3')
+        mySound.play()
+      }
       })
   }
 }
