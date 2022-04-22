@@ -29,7 +29,7 @@ console.log(document.querySelector('#game_difficult').value);
 document.querySelector("#start_game").addEventListener("click", function(){
 
   if(!played){
-    document.querySelector("h2").classList.add("hide")
+
     init(document.querySelector('#game_difficult').value);
     played = true;
 
@@ -43,18 +43,10 @@ document.querySelector("#start_game").addEventListener("click", function(){
 
 
 function init(numberElement){
-  const gridLevels = [100,81,49]
-  for(let i = 0; i < gridLevels[numberElement]; i++){
-    const square = createSquare(containerGame,gridLevels[numberElement],i);
+  for(let i = 0; i < numberElement; i++){
+    const square = createSquare(containerGame,numberElement,i);
     square.addEventListener('click', function(){
       this.classList.add('clicked');
-      if(this.classList.contains("flower")){
-        let mySound = new Audio('audio/flower.mp3')
-        mySound.play()
-      } else {
-        let mySound = new Audio('audio/bomb.mp3')
-        mySound.play()
-      }
       })
   }
 }
@@ -71,15 +63,8 @@ function createSquare(target,dimension,externalNumber){
   const number = getUniqueRandomNumber(1,dimension);
 
   newSquare.innerHTML = `<span class="square_number">${externalNumber+1}</span>`;
-  //newSquare.innerHTML += `<span class="secret_number">${number}</span>`;
-  newSquare.classList.add(getFlowerBomb(number));
-
-  if(getFlowerBomb(number)=== "flower"){
-    newSquare.innerHTML += `<img src="img/flower.png" alt=""></img>`
-  } else {
-    newSquare.innerHTML += `<img src="img/bomb.png" alt=""></img>`
-
-  }
+  newSquare.innerHTML += `<span class="secret_number">${number}</span>`;
+  newSquare.classList.add(getOddEven(number));
 
   target.append(newSquare);
 
@@ -106,9 +91,9 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function getFlowerBomb(n){
-    if(n % 2) return 'bomb';
-    return 'flower';
+function getOddEven(n){
+    if(n % 2) return 'odd';
+    return 'even';
 }
 
 function clearBox(element) { 
